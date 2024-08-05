@@ -33,7 +33,7 @@ header .sectionWrap {
 }
 
 header button {
-    background: url('/Part1/PandaMarket/src/image/btn_small_48.png') no-repeat;
+    background: url('../../src/image/btn_small_48.png') no-repeat;
     /* width: 128px; */
     width: 8rem;
     /* height: 48px; */
