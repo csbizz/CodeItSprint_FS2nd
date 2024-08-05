@@ -1,4 +1,4 @@
-@import "reset.css";
+@import "header.css";
 
 * {
     box-sizing: border-box;
@@ -7,8 +7,8 @@
 header {
     display: flex;
     justify-content: center;
-    margin-top: 60px;
-    margin-bottom: 40px;
+    /* margin: 60px 0 40px; */
+    margin: 3.75rem 0 2.5rem;
 }
 
 main {
@@ -38,24 +38,41 @@ form input {
     height: 3.5rem;
     margin-top: 1rem;
     padding: 1.5rem 1rem;
-    background-color: #F3F4F6;
+    background-color: var(--gray-100);
     border: 0;
 }
 
 form input:focus {
-    border-color: #3692FF;
+    border-color: var(--Primary-100);
+}
+
+.inputPW > div,
+.checkPW > div {
+    position: relative;
+}
+
+.inputPW img,
+.checkPW img {
+    position: absolute;
+    /* right: 24px; */
+    /* bottom: 16px; */
+    right: 1.5rem;
+    bottom: 1rem;
 }
 
 form button {
     width: 100%;
-    height: 56px;
+    /* height: 56px; */
+    height: 3.5rem;
     border: 0;
     border-radius: 40px;
-    background-color: #9ca3af;
+    background-color: var(--gray-400);
     color: #ffffff;
-    font-size: 20px;
+    /* font-size: 20px; */
+    /* line-height: 24px; */
+    font-size: 1.25rem;
+    line-height: 1.5rem;
     font-weight: 600;
-    line-height: 24px;
 }
 
 .snsLogin {
@@ -65,14 +82,18 @@ form button {
     border-radius: 8px;
     background-color: #e6f2ff;
     width: 100%;
-    height: 74px;
-    margin: 24px auto;
-    padding: 25px 23px;
+    /* height: 74px; */
+    /* margin: 24px auto; */
+    /* padding: 25px 23px; */
+    height: 4.625rem;
+    margin: 1.5rem auto;
+    padding: 1.5625rem 1.4375rem;
 }
 
 .snsLogin > div {
     display: flex;
-    gap: 16px;
+    /* gap: 16px; */
+    gap: 1rem;
 }
 
 footer {
@@ -84,10 +105,12 @@ footer {
 }
 
 footer p {
-    font-size: 15px;
-    line-height: 17.9px;
+    /* font-size: 15px; */
+    /* line-height: 17.9px; */
+    font-size: 0.9375rem;
+    line-height: 1.11875rem;
     font-weight: 500;
-    color: #1f2937;
+    color: var(--gray-800);
 }
 
 footer a {

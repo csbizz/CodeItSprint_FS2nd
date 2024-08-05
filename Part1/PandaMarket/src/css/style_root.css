@@ -1,4 +1,4 @@
-@import "reset.css";
+@import "header.css";
 
 * {
     box-sizing: border-box;
@@ -42,7 +42,7 @@ header button {
 
 /* 메인 부분 */
 main {
-    color: #374151;
+    color: var(--gray-700);
 }
 
 .topSection,
@@ -87,10 +87,10 @@ main {
     line-height: 2rem;
     font-weight: 600;
     height: 3.5rem;
-    background-color: #3692ff;
+    background-color: var(--Primary-100);
     border: 0;
     border-radius: 40px;
-    color:#f9fafb;
+    color:var(--gray-50);
     /* margin: 32px 0 60px; */
     margin: 2rem 0 3.75rem;
 }
@@ -152,7 +152,7 @@ main {
     font-weight: 700;
     /* line-height: 26px; */
     line-height: 1.625rem;
-    color: #3692ff;
+    color: var(--Primary-100);
 }
 
 .bottomSection .detail {
@@ -164,7 +164,7 @@ main {
 footer {
     /* height: 160px; */
     height: 10rem;
-    background-color: #111827;
+    background-color: var(--gray-900);
     /* padding-top: 32px; */
     padding-top: 2rem;
 }
@@ -175,7 +175,7 @@ footer p {
     font-weight: 400;
     /* line-height: 19.09px; */
     line-height: 1.2rem;
-    color: #9ca3af;
+    color: var(--gray-400);
     margin : 0;
 }
 
@@ -192,7 +192,7 @@ footer .documents {
 }
 
 footer .documents a {
-    color: #e5e7eb;
+    color: var(--gray-200);
     text-decoration: none;
 }
 
