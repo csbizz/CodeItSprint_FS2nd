@@ -1,0 +1,38 @@
+@import "reset.css";
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    /* flex-basis: 640px; */
+    flex-basis: 40rem;
+}
+
+.labelWrap {
+    /* margin-bottom: 24px; */
+    margin-bottom: 1.5rem;
+}
+
+form input {
+    width: 100%;
+    border-radius: 12px;
+    /* height: 56px; */
+    /* margin-top: 16px; */
+    /* padding: 24px 16px; */
+    height: 3.5rem;
+    margin-top: 1rem;
+    padding: 1.5rem 1rem;
+}

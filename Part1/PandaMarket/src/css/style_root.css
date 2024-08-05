@@ -33,7 +33,7 @@ header .sectionWrap {
 }
 
 header button {
-    background: url('./src/image/btn_small_48.png') no-repeat;
+    background: url('/Part1/PandaMarket/src/image/btn_small_48.png') no-repeat;
     /* width: 128px; */
     width: 8rem;
     /* height: 48px; */
@@ -76,6 +76,27 @@ main {
 .bottomSection .detail {
     /* margin: 40px auto; */
     margin: 2.5rem auto;
+}
+
+.topSection .detail button {
+    width: 100%;
+    /* height: 56px; */
+    /* font-size: 20px; */
+    /* line-height: 32px; */
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-weight: 600;
+    height: 3.5rem;
+    background-color: #3692ff;
+    border: 0;
+    border-radius: 40px;
+    color:#f9fafb;
+    /* margin: 32px 0 60px; */
+    margin: 2rem 0 3.75rem;
+}
+
+.topSection .detail button:hover {
+    cursor: pointer;
 }
 
 /* 중앙의 카드형 부분 */
