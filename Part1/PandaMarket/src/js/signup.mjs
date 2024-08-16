@@ -2,10 +2,14 @@ import * as verification from './verification.mjs';
 
 const loginBtn = document.querySelector('#login-field').lastElementChild;
 const inputId = document.querySelector('.js-input__id');
+const inputNickName = document.querySelector('.js-input__nickname');
 const inputPw = document.querySelector('.js-input__pw');
+const inputCheckPw = document.querySelector('.js-input__checkpw');
 
 let idChk = false;
+let nickNameChk = false;
 let pwChk = false;
+let pwReChk = false;
 
 inputId.addEventListener("focusout", e => {
     const errorMsg = e.target.parentElement.querySelector('.js-error-msg');
@@ -22,7 +26,25 @@ inputId.addEventListener("focusout", e => {
         errorMsg.textContent = "";
     }
 
-    loginBtn.disabled = !(idChk && pwChk);
+    loginBtn.disabled = !(idChk && nickNameChk && pwChk && pwReChk);
+});
+
+inputNickName.addEventListener("focusout", e => {
+    const errorMsg = e.target.parentElement.querySelector('.js-error-msg');
+
+    if(e.target.textLength === 0) {
+        nickNameChk = false;
+        e.target.classList.add('error');
+
+        errorMsg.textContent = '닉네임을 입력해주세요.';
+    } else {
+        nickNameChk = true;
+        e.target.classList.remove('error');
+
+        errorMsg.textContent = "";
+    }
+
+    loginBtn.disabled = !(idChk && nickNameChk && pwChk && pwReChk);
 });
 
 inputPw.addEventListener("focusout", e => {
@@ -45,13 +67,31 @@ inputPw.addEventListener("focusout", e => {
         errorMsg.textContent = "";
     }
 
-    loginBtn.disabled = !(idChk && pwChk);
+    loginBtn.disabled = !(idChk && nickNameChk && pwChk && pwReChk);
+});
+
+inputCheckPw.addEventListener("focusout", e => {
+    const errorMsg = e.target.parentElement.parentElement.querySelector('.js-error-msg');
+
+    if(inputPw.value !== e.target.value) {
+        pwReChk = false;
+        e.target.classList.add('error');
+
+        errorMsg.textContent = "비밀번호가 일치하지 않습니다.";
+    } else {
+        pwReChk = true;
+        e.target.classList.remove('error');
+
+        errorMsg.textContent = "";
+    }
+
+    loginBtn.disabled = !(idChk && nickNameChk && pwChk && pwReChk);
 });
 
 loginBtn.addEventListener("click", e => {
     if(verification.verifyPw(inputId.value, inputPw.value)) {
-        location.href = "../items";
+        alert('사용 중인 이메일입니다')
     } else {
-        alert('비밀번호가 일치하지 않습니다.');
+        location.href = "../login";
     }
 });
