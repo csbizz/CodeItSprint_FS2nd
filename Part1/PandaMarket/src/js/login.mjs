@@ -7,6 +7,7 @@ const inputPw = document.querySelector('.js-input__pw');
 let idChk = false;
 let pwChk = false;
 
+inputId.addEventListener("focusin", e => e.target.classList.remove('error'));
 inputId.addEventListener("focusout", e => {
     const errorMsg = e.target.parentElement.querySelector('.js-error-msg');
 
@@ -17,7 +18,6 @@ inputId.addEventListener("focusout", e => {
         errorMsg.textContent = e.target.textLength === 0 ? '이메일을 입력해주세요.' : '잘못된 이메일 형식입니다'
     } else {
         idChk = true;
-        e.target.classList.remove('error');
 
         errorMsg.textContent = "";
     }
@@ -25,6 +25,7 @@ inputId.addEventListener("focusout", e => {
     loginBtn.disabled = !(idChk && pwChk);
 });
 
+inputPw.addEventListener("focusin", e => e.target.classList.remove('error'));
 inputPw.addEventListener("focusout", e => {
     const errorMsg = e.target.parentElement.parentElement.querySelector('.js-error-msg');
 
@@ -40,7 +41,6 @@ inputPw.addEventListener("focusout", e => {
         errorMsg.textContent = "비밀번호를 8자 이상 입력해주세요.";
     } else {
         pwChk = true;
-        e.target.classList.remove('error');
 
         errorMsg.textContent = "";
     }

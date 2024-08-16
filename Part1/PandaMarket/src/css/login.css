@@ -69,12 +69,11 @@ main {
 }
 
 #login-field input:focus {
-    outline-color: var(--Primary-100);
+    outline: thin solid var(--Primary-100);
 }
 
-/* TODO : 왜 적용 안되냐 */
 #login-field input.error {
-    outline-color: var(--error-red);
+    outline: thin solid var(--error-red);
 }
 
 label.input__pw > div {

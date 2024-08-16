@@ -11,6 +11,7 @@ let nickNameChk = false;
 let pwChk = false;
 let pwReChk = false;
 
+inputId.addEventListener("focusin", e => e.target.classList.remove('error'));
 inputId.addEventListener("focusout", e => {
     const errorMsg = e.target.parentElement.querySelector('.js-error-msg');
 
@@ -21,7 +22,6 @@ inputId.addEventListener("focusout", e => {
         errorMsg.textContent = e.target.textLength === 0 ? '이메일을 입력해주세요.' : '잘못된 이메일 형식입니다'
     } else {
         idChk = true;
-        e.target.classList.remove('error');
 
         errorMsg.textContent = "";
     }
@@ -29,6 +29,7 @@ inputId.addEventListener("focusout", e => {
     loginBtn.disabled = !(idChk && nickNameChk && pwChk && pwReChk);
 });
 
+inputNickName.addEventListener("focusin", e => e.target.classList.remove('error'));
 inputNickName.addEventListener("focusout", e => {
     const errorMsg = e.target.parentElement.querySelector('.js-error-msg');
 
@@ -39,7 +40,6 @@ inputNickName.addEventListener("focusout", e => {
         errorMsg.textContent = '닉네임을 입력해주세요.';
     } else {
         nickNameChk = true;
-        e.target.classList.remove('error');
 
         errorMsg.textContent = "";
     }
@@ -47,6 +47,7 @@ inputNickName.addEventListener("focusout", e => {
     loginBtn.disabled = !(idChk && nickNameChk && pwChk && pwReChk);
 });
 
+inputPw.addEventListener("focusin", e => e.target.classList.remove('error'));
 inputPw.addEventListener("focusout", e => {
     const errorMsg = e.target.parentElement.parentElement.querySelector('.js-error-msg');
 
@@ -62,7 +63,6 @@ inputPw.addEventListener("focusout", e => {
         errorMsg.textContent = "비밀번호를 8자 이상 입력해주세요.";
     } else {
         pwChk = true;
-        e.target.classList.remove('error');
 
         errorMsg.textContent = "";
     }
@@ -70,6 +70,7 @@ inputPw.addEventListener("focusout", e => {
     loginBtn.disabled = !(idChk && nickNameChk && pwChk && pwReChk);
 });
 
+inputCheckPw.addEventListener("focusin", e => e.target.classList.remove('error'));
 inputCheckPw.addEventListener("focusout", e => {
     const errorMsg = e.target.parentElement.parentElement.querySelector('.js-error-msg');
 
@@ -80,7 +81,6 @@ inputCheckPw.addEventListener("focusout", e => {
         errorMsg.textContent = "비밀번호가 일치하지 않습니다.";
     } else {
         pwReChk = true;
-        e.target.classList.remove('error');
 
         errorMsg.textContent = "";
     }
