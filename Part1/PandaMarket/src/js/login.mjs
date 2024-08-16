@@ -47,3 +47,11 @@ inputPw.addEventListener("focusout", e => {
 
     loginBtn.disabled = !(idChk && pwChk);
 });
+
+loginBtn.addEventListener("click", e => {
+    if(verification.verifyPw(inputId.value, inputPw.value)) {
+        location.href = "../items";
+    } else {
+        alert('비밀번호가 일치하지 않습니다.');
+    }
+});
