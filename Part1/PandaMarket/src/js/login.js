@@ -1,4 +1,4 @@
-import * as verification from './verification.mjs';
+import * as verification from './verification.js';
 
 const loginBtn = document.querySelector('#login-button');
 const inputId = document.querySelector('.js-input__id');
