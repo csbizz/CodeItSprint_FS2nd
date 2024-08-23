@@ -1,6 +1,6 @@
 import * as verification from './verification.js';
 
-const loginBtn = document.querySelector('#login-button');
+const loginBtn = document.getElementById('loginField');
 const inputId = document.querySelector('.js-input__id');
 const inputNickName = document.querySelector('.js-input__nickname');
 const inputPw = document.querySelector('.js-input__pw');
