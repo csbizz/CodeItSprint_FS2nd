@@ -11,8 +11,27 @@ h1 {
   font-weight: 700;
 }
 
+footer {
+  height: 16rem;
+  background-color: var(--gray-900);
+  padding: 3.2rem 20rem 10.8rem 20rem;
+  color: var(--gray-400);
+}
+
 #pandaLogo {
   width: 153px;
+}
+
+#topNav {
+  flex: 1;
+  margin-left: 32px;
+  display: flex;
+  gap: 32px;
+  color: var(--gray-600);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21.48px;
+  text-align: center;
 }
 
 #loginButton {
@@ -20,6 +39,14 @@ h1 {
   border-radius: 0.8rem;
   padding: 1.1rem 4.3rem;
   line-height: 2.6rem;
+}
+
+#topBanner {
+  background-image: url("../Image/Img_home_top.png");
+}
+
+#bottomBanner {
+  background-image: url("../Image/Img_home_bottom.png");
 }
 
 .banner {
@@ -32,13 +59,9 @@ h1 {
   height: 54rem;
 }
 
-#topBanner {
-  background-image: url("../Image/Img_home_top.png");
-}
-
 .section-wrap,
 .cards {
-  max-width: 151rem;
+  max-width: 120rem;
   margin: 0 auto;
   width: 100%;
 }
@@ -58,7 +81,8 @@ h1 {
   gap: 5%;
 }
 
-.card:nth-child(2) {
+.card.reverse {
+  flex-direction: row-reverse;
   text-align: right;
 }
 
@@ -81,17 +105,6 @@ h1 {
   margin-top: 2.4rem;
 }
 
-#bottomBanner {
-  background-image: url("../Image/Img_home_bottom.png");
-}
-
-footer {
-  height: 16rem;
-  background-color: var(--gray-900);
-  padding: 3.2rem 20rem 10.8rem 20rem;
-  color: var(--gray-400);
-}
-
 .footer-link {
   display: flex;
   gap: 3rem;
@@ -104,6 +117,53 @@ footer {
 }
 
 .sns-link img {
-  width: 2rem;
-  height: 2rem;
+  width: 20px;
+  height: 20px;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------- */
+
+/* Tablet */
+@media (max-width: 1199px) {
+  header,
+  footer {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+
+  .banner {
+    height: 77.1rem;
+    background-position: bottom;
+    background-size: 90%;
+    position: relative;
+    align-items: baseline;
+  }
+
+  .section-wrap {
+    text-align: center;
+    position: relative;
+    top: 18%;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .card.reverse {
+    flex-direction: column;
+  }
+
+  .card-text {
+    text-align: left;
+    width: 696px;
+    margin-top: 1.6rem;
+  }
+
+  .card.reverse .card-text {
+    text-align: right;
+  }
+
+  .card img {
+    width: 696px;
+  }
 }
