@@ -7,3 +7,4 @@
 /backup
 /backup/*
 *.bak
+node_modules
