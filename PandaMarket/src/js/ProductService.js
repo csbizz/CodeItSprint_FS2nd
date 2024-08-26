@@ -5,15 +5,22 @@ const instance = axios.create({
   timeout: 5000
 });
 
-function isOK(res) {
-  return res.status >= 200 && res.status < 300;
-}
+instance.interceptors.response.use(
+  (res) => res,
+  (err) => {
+    throw new Error(err.status + ' ' + err.statusText);
+  }
+);
 
-function returnIfOK(res) {
-  if (!isOK(res)) throw new Error(res.status + ' ' + res.statusText);
+// function isOK(res) {
+//   return res.status >= 200 && res.status < 300;
+// }
 
-  return res.data;
-}
+// function returnIfOK(res) {
+//   if (!isOK(res)) throw new Error(res.status + ' ' + res.statusText);
+
+//   return res.data;
+// }
 
 function requestGet(url, params) {
   return instance.get(url, params);
@@ -34,25 +41,29 @@ function requestDelete(url) {
 async function getProductList(params = {}) {
   const res = await requestGet('/', { params });
 
-  return returnIfOK(res);
+  // return returnIfOK(res);
+  return res.data;
 }
 
 async function getProduct(id) {
   const res = await requestGet('/' + id);
 
-  return returnIfOK(res);
+  // return returnIfOK(res);
+  return res.data;
 }
 
 async function createProduct(product) {
   const res = await requestPost('/', product);
 
-  return returnIfOK(res);
+  // return returnIfOK(res);
+  return res.data;
 }
 
 async function patchProduct(id, product) {
   const res = await requestPatch('/' + id, product);
 
-  return returnIfOK(res);
+  // return returnIfOK(res);
+  return res.data;
 }
 
 async function deleteProduct(id) {
