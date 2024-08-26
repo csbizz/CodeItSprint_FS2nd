@@ -6,17 +6,36 @@ async function fetchData(url, method, body = {}, params = {}) {
     server.searchParams.append(key, params[key]);
   }
 
-  const res = await fetch(server, {
-    method,
-    body: JSON.stringify(body),
-    headers: { 'Content-Type': 'application/json' }
-  })
+  const res =
+    method === 'POST' || method === 'PATCH'
+      ? fetch(server, {
+          method,
+          body: JSON.stringify(body),
+          headers: { 'Content-Type': 'application/json' }
+        })
+      : fetch(server);
+
+  const data = await res
     .then((r) => {
-      if (r.ok) return r.json();
+      if (r.status === 204) return r.status;
+      else if (r.ok) return r.json();
 
       throw new Error(r.status + ' ' + r.statusText);
     })
     .catch((e) => console.log(e.message));
+
+  // const res = await fetch(server, {
+  //   method,
+  //   body: JSON.stringify(body),
+  //   headers: { 'Content-Type': 'application/json' }
+  // })
+  //   .then((r) => {
+  //     if (r.ok) return r.json();
+
+  //     throw new Error(r.status + ' ' + r.statusText);
+  //   })
+  //   .catch((e) => console.log(e.message));
+  return data;
 }
 
 // function jsonIfOK(res) {
@@ -38,7 +57,7 @@ async function getArticleList(params = {}) {
   // return fetch(url)
   //   .then((res) => jsonIfOK(res))
   //   .catch((e) => console.log(e.message));
-  return fetchData(SERVER, 'get', {}, params);
+  return fetchData(SERVER, 'GET', {}, params);
 }
 
 async function getArticle(id) {
@@ -50,7 +69,7 @@ async function getArticle(id) {
   // return fetch(url)
   //   .then((res) => jsonIfOK(res))
   //   .catch((e) => console.log(e.message));
-  return fetchData(SERVER + id, 'get');
+  return fetchData(SERVER + id, 'GET');
 }
 
 async function createArticle(article) {
@@ -70,7 +89,7 @@ async function createArticle(article) {
   // })
   //   .then((res) => jsonIfOK(res))
   //   .catch((e) => console.log(e.message));
-  return fetchData(SERVER, 'post', article);
+  return fetchData(SERVER, 'POST', article);
 }
 
 async function patchArticle(id, article) {
@@ -90,17 +109,18 @@ async function patchArticle(id, article) {
   // })
   //   .then((res) => jsonIfOK(res))
   //   .catch((e) => console.log(e.message));
-  return fetchData(SERVER + id, 'patch', article);
+  return fetchData(SERVER + id, 'PATCH', article);
 }
 
 // delete api의 리턴값이 json 형식이 아닌 것 같아서 일단 보류
 async function deleteArticle(id) {
-  const url = new URL(SERVER + id);
+  // const url = new URL(SERVER + id);
 
-  const res = await fetch(url, {
-    method: 'DELETE'
-  });
-  return res.status;
+  // const res = await fetch(url, {
+  //   method: 'DELETE'
+  // });
+  // return res.status;
+  return fetchData(SERVER + id, 'DELETE');
 }
 
 export {
