@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Button from './Button.js';
 import HandButton from './HandButton.js';
 import HandIcon from './HandIcon.js';
 import { compareHand, generateRandomHand } from './utils';
@@ -67,9 +66,12 @@ function App() {
   return (
     <div className="App">
       <h1 className="App-heading">가위바위보</h1>
-      <Button onClick={handleClearClick}>
-        <img className="App-reset" src={resetBtn} alt="reset" />
-      </Button>
+      <img
+        className="App-reset"
+        src={resetBtn}
+        alt="reset"
+        onClick={handleClearClick}
+      />
       <div className="App-scores">
         <div className="Score">
           <div className="Score-num">{score}</div>
