@@ -3,6 +3,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { createFood, deleteFood, getFoods, patchFood } from '../api';
 import FoodForm from './FoodForm';
 import useAsync from '../hooks/useAsync';
+import { LocaleSelect } from './LocaleSelect';
+import useTranslate from '../hooks/useTranslate';
 
 const SORT_ORDER = Object.freeze({
   CREATEDAT: 'createdAt',
@@ -17,6 +19,7 @@ function App() {
   const [nextCursor, setNextCursor] = useState(null);
   const [isLoading, err, getFoodsAsync] = useAsync(getFoods);
   const [search, setSearch] = useState('');
+  const translate = useTranslate();
 
   const sortedItems = items.sort((a, b) => b[sortOrder] - a[sortOrder]);
 
@@ -66,12 +69,13 @@ function App() {
 
   return (
     <div>
+      <LocaleSelect />
       <FoodForm onSubmit={createFood} onSubmitSuccess={handleCreateSuccess} />
-      <button onClick={handleNewestClick}>최신순</button>
-      <button onClick={handleCalorieClick}>칼로리순</button>
+      <button onClick={handleNewestClick}>{translate('newest')}</button>
+      <button onClick={handleCalorieClick}>{translate('calorie')}</button>
       <form onSubmit={handleSearchSubmit}>
         <input type="text" name="search" />
-        <button type="submit">검색</button>
+        <button type="submit">{translate('search')}</button>
       </form>
       <FoodList
         items={sortedItems}
@@ -81,7 +85,7 @@ function App() {
       />
       {nextCursor && (
         <button disabled={isLoading} onClick={handleLoadMore}>
-          더 보기
+          {translate('more')}
         </button>
       )}
       {err?.message && <span>{err.message}</span>}

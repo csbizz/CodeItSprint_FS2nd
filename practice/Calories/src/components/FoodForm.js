@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import FileInput from './FileInput';
 import useAsync from '../hooks/useAsync';
+import useTranslate from '../hooks/useTranslate';
 
 const INITIAL_VALUES = Object.freeze({
   title: '',
@@ -18,6 +19,7 @@ function FoodForm({
 }) {
   const [isLoading, submitErr, onSubmitAsync] = useAsync(onSubmit);
   const [values, setValues] = useState(initialValues);
+  const translate = useTranslate();
 
   const addValue = (name, value) => {
     setValues((vals) => ({
@@ -76,9 +78,9 @@ function FoodForm({
         onChange={handleChange}
       ></textarea>
       <button disabled={isLoading} type="submit">
-        확인
+        {translate('confirm')}
       </button>
-      {onCancel && <button onClick={onCancel}>취소</button>}
+      {onCancel && <button onClick={onCancel}>{translate('cancel')}</button>}
       {submitErr?.message && <div>{submitErr.message}</div>}
     </form>
   );
