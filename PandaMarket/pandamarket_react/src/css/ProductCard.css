@@ -1,0 +1,46 @@
+@import "import.css";
+
+.card {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.card .product-img {
+  background-color: blueviolet;
+  flex-grow: 1;
+
+  border-radius: 16px;
+}
+
+.card .product-info {
+  background-color: chartreuse;
+  height: 8rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.product-info .title {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--gray-800);
+}
+
+.product-info .price {
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  color: var(--gray-800);
+}
+
+.product-info .like {
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  color: #4b5563;
+}
