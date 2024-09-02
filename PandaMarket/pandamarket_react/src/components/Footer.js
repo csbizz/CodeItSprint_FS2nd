@@ -6,11 +6,11 @@ function Footer() {
       <div>
         <p>©codeit - 2024</p>
       </div>
-      <div class="footer-link">
+      <div className="footer-link">
         <a href="../privacy/">Privacy Policy</a>
         <a href="../faq/">FAQ</a>
       </div>
-      <div class="sns-link">
+      <div className="sns-link">
         <a href="https://www.facebook.com/">
           <img src="src/Image/ic_facebook.png" alt="facebook" />
         </a>

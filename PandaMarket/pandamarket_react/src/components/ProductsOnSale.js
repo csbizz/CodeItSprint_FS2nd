@@ -1,7 +1,7 @@
 import '../css/ProductsOnSale.css';
 import ProductCard from './ProductCard';
 
-function ProductsOnSale() {
+function ProductsOnSale({ items }) {
   return (
     <section id="productOnSale">
       <div id="productOnSaleTitle">
@@ -11,16 +11,9 @@ function ProductsOnSale() {
         <div className="sort-order">최신순</div>
       </div>
       <div id="productOnSaleItems">
-        <ProductCard classNames="productOnSale" />
-        <ProductCard classNames="productOnSale" />
-        <ProductCard classNames="productOnSale" />
-        <ProductCard classNames="productOnSale" />
-        <ProductCard classNames="productOnSale" />
-        <ProductCard classNames="productOnSale" />
-        <ProductCard classNames="productOnSale" />
-        <ProductCard classNames="productOnSale" />
-        <ProductCard classNames="productOnSale" />
-        <ProductCard classNames="productOnSale" />
+        {items.map((item) => {
+          return <ProductCard classNames="productOnSale" item={item} />;
+        })}
       </div>
       <div id="productOnSalePagination">
         <div className="pagination productOnSale">
