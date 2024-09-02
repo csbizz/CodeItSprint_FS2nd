@@ -1,5 +1,5 @@
-import ProductCard from './ProductCard';
 import '../css/ProductsOnSale.css';
+import ProductCard from './ProductCard';
 
 function ProductsOnSale() {
   return (

@@ -1,9 +1,9 @@
-@import "header.css";
+@import "import.css";
 
 h3 {
   font-weight: 700;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 2rem;
+  line-height: 3.2rem;
   color: var(--gray-900);
 }
 
@@ -14,7 +14,14 @@ header {
 }
 
 main {
-  padding: 0 360px;
+  padding: 0 36rem;
+}
+
+footer {
+  height: 16rem;
+  background-color: var(--gray-900);
+  padding: 3.2rem 20rem 10.8rem 20rem;
+  color: var(--gray-400);
 }
 
 #pandaLogo {
@@ -35,34 +42,34 @@ main {
 
 #loginButton {
   font-weight: 600;
-  border-radius: 0.8rem;
+  border-radius: 8px;
   padding: 1.1rem 2.3rem;
   line-height: 2.6rem;
 }
 
 #bestProducts {
-  margin-top: 24px;
-  margin-bottom: 40px;
+  margin-top: 2.4rem;
+  margin-bottom: 4rem;
 }
 
 #bestProductsTitle {
-  margin-bottom: 16px;
+  margin-bottom: 1.6rem;
 }
 
 #bestProductsItems {
   width: 100%;
-  height: 378px;
+  height: 37.8rem;
 
   display: flex;
-  gap: 24px;
+  gap: 2.4rem;
 }
 
 #productOnSaleTitle {
-  height: 42px;
-  margin-bottom: 24px;
+  height: 4.2rem;
+  margin-bottom: 2.4rem;
 
   display: flex;
-  gap: 10px;
+  gap: 1rem;
 }
 
 #productOnSaleTitle h3 {
@@ -70,17 +77,17 @@ main {
 }
 
 #productOnSaleItems {
-  height: 674px;
+  height: 67.4rem;
 
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 4rem;
 }
 
 #productOnSalePagination {
-  margin-top: 43px;
-  margin-bottom: 58px;
-  height: 40px;
+  margin-top: 4.3rem;
+  margin-bottom: 5.8rem;
+  height: 4rem;
 }
 
 .card {
@@ -88,7 +95,7 @@ main {
 
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
 .card .product-img {
@@ -100,11 +107,11 @@ main {
 
 .card .product-info {
   background-color: chartreuse;
-  height: 80px;
+  height: 8rem;
 
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.6rem;
 }
 
 .card.productOnSale {
@@ -113,29 +120,29 @@ main {
 
 .product-info .title {
   font-weight: 500;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
   color: var(--gray-800);
 }
 
 .product-info .price {
   font-weight: 700;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
   color: var(--gray-800);
 }
 
 .product-info .like {
   font-weight: 500;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
   color: #4b5563;
 }
 
 .search-query {
   background-color: bisque;
   height: 100%;
-  width: 325px;
+  width: 32.5rem;
   border-radius: 12px;
 }
 
@@ -144,26 +151,26 @@ main {
   border-radius: 8px;
   text-align: center;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: var(--gray-100);
-  padding: 12px 23px;
+  padding: 1.2rem 2.3rem;
 }
 
 .sort-order {
   background-color: cadetblue;
   height: 100%;
-  width: 130px;
+  width: 13rem;
   border-radius: 12px;
   border: 1px solid var(--gray-200);
 }
 
 .pagination.productOnSale {
   margin: 0 auto;
-  width: 304px;
+  width: 30.4rem;
   height: 100%;
 
   display: flex;
-  gap: 4px;
+  gap: 0.4rem;
 }
 
 .pagination.productOnSale button {
@@ -173,7 +180,7 @@ main {
   text-align: center;
 
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: var(--gray-500);
 
   border: 1px solid var(--gray-200);
@@ -185,11 +192,28 @@ main {
   border: none;
 }
 
+.footer-link {
+  display: flex;
+  gap: 3rem;
+  color: var(--gray-200);
+}
+
+.sns-link {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.sns-link img {
+  width: 20px;
+  height: 20px;
+}
+
 /* ----------------------------------------------------------------------------------------------------------------- */
 
 /* Tablet */
 @media (max-width: 1199px) {
-  header {
+  header,
+  footer {
     padding-left: 2.4rem;
     padding-right: 2.4rem;
   }
@@ -199,7 +223,8 @@ main {
 
 /* Mobile */
 @media (max-width: 743px) {
-  header {
+  header,
+  footer {
     padding-left: 1.6rem;
     padding-right: 1.6rem;
   }

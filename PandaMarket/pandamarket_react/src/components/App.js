@@ -1,7 +1,8 @@
+import '../css/market.css';
 import BestProducts from './BestProducts';
 import Header from './Header';
 import ProductsOnSale from './ProductsOnSale';
-import '../css/market.css';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <BestProducts />
         <ProductsOnSale />
       </main>
+      <Footer />
     </>
   );
 }

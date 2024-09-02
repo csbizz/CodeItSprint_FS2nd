@@ -1,5 +1,5 @@
-import ProductCard from './ProductCard';
 import '../css/BestProducts.css';
+import ProductCard from './ProductCard';
 
 function BestProducts() {
   return (
