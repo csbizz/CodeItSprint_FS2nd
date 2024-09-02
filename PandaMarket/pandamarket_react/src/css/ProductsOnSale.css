@@ -46,14 +46,6 @@
   padding: 1.2rem 2.3rem;
 }
 
-.sort-order {
-  background-color: cadetblue;
-  height: 100%;
-  width: 13rem;
-  border-radius: 12px;
-  border: 1px solid var(--gray-200);
-}
-
 .pagination.productOnSale {
   margin: 0 auto;
   width: 30.4rem;

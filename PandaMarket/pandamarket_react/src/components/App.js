@@ -29,7 +29,6 @@ function App() {
     },
     [getProductsAsync]
   );
-
   const handleLoadItem = useCallback(
     async (params) => {
       const data = await getProductsAsync(params);
@@ -40,6 +39,8 @@ function App() {
     },
     [getProductsAsync]
   );
+  const handleSortOrderChange = (order) =>
+    handleLoadItem({ page: 1, pageSize: ITEM_PAGE_SIZE[0], orderBy: order });
 
   useEffect(() => {
     handleLoadBestItem({
@@ -59,7 +60,10 @@ function App() {
       <Header />
       <main>
         <BestProducts items={bestItems} />
-        <ProductsOnSale items={items} />
+        <ProductsOnSale
+          items={items}
+          onSortOrderChange={handleSortOrderChange}
+        />
       </main>
       <Footer />
     </>

@@ -1,14 +1,15 @@
 import '../css/ProductsOnSale.css';
 import ProductCard from './ProductCard';
+import SortOrderSelect from './SortOrderSelect';
 
-function ProductsOnSale({ items }) {
+function ProductsOnSale({ items, onSortOrderChange }) {
   return (
     <section id="productOnSale">
       <div id="productOnSaleTitle">
         <h3>판매 중인 상품</h3>
         <div className="search-query">검색할 상품을 입력해주세요</div>
         <button className="regist-button">상품 등록하기</button>
-        <div className="sort-order">최신순</div>
+        <SortOrderSelect onChange={onSortOrderChange} />
       </div>
       <div id="productOnSaleItems">
         {items.map((item) => {
