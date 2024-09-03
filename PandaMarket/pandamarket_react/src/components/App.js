@@ -6,18 +6,18 @@ import ProductsOnSale from './ProductsOnSale';
 import Footer from './Footer';
 import { getProducts } from '../api';
 import useAsync from '../hooks/useAsync';
+import { SORT_ORDER } from './SortOrderSelect';
 
 const BEST_ITEM_PAGE_SIZE = [4, 2, 1];
-const ITEM_PAGE_SIZE = [10, 6, 4];
-const SORT_ORDER = Object.freeze({
-  RECENT: 'recent',
-  FAVORITE: 'favorite'
-});
+export const ITEM_PAGE_SIZE = [10, 6, 4];
 
 function App() {
-  const [offset, setOffset] = useState(0);
   const [bestItems, setBestItems] = useState([]);
   const [items, setItems] = useState([]);
+  const [sortOrder, setSortOrder] = useState(SORT_ORDER.RECENT);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [now, setNow] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
   const [isLoading, err, getProductsAsync] = useAsync(getProducts);
 
   const handleLoadBestItem = useCallback(
@@ -35,12 +35,14 @@ function App() {
       if (!data) return;
 
       setItems(data.list);
-      setOffset(params.page * ITEM_PAGE_SIZE[0]);
+      setTotalCount(data.totalCount);
+      setNow(params.page);
     },
     [getProductsAsync]
   );
-  const handleSortOrderChange = (order) =>
-    handleLoadItem({ page: 1, pageSize: ITEM_PAGE_SIZE[0], orderBy: order });
+  const handleSearch = (query) => setSearchQuery(query);
+  const handleSortOrderChange = (order) => setSortOrder(order);
+  const handlePageChange = useCallback((p) => setNow(p), []);
 
   useEffect(() => {
     handleLoadBestItem({
@@ -49,11 +51,12 @@ function App() {
       orderBy: SORT_ORDER.FAVORITE
     });
     handleLoadItem({
-      page: 1,
+      page: now,
       pageSize: ITEM_PAGE_SIZE[0],
-      orderBy: SORT_ORDER.RECENT
+      orderBy: sortOrder,
+      keyword: searchQuery
     });
-  }, [handleLoadBestItem, handleLoadItem]);
+  }, [now, sortOrder, searchQuery, handleLoadBestItem, handleLoadItem]);
 
   return (
     <>
@@ -62,7 +65,10 @@ function App() {
         <BestProducts items={bestItems} />
         <ProductsOnSale
           items={items}
+          totalCount={totalCount}
+          onSearch={handleSearch}
           onSortOrderChange={handleSortOrderChange}
+          onPageChange={handlePageChange}
         />
       </main>
       <Footer />

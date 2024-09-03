@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../css/SortOrderSelect.css';
 
-const SORT_ORDER = Object.freeze({
+export const SORT_ORDER = Object.freeze({
   RECENT: 'recent',
   FAVORITE: 'favorite'
 });

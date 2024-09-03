@@ -9,7 +9,9 @@ function BestProducts({ items }) {
       </div>
       <div id="bestProductsItems">
         {items.map((item) => {
-          return <ProductCard classNames="bestItem" item={item} />;
+          return (
+            <ProductCard classNames="bestItem" item={item} key={item.id} />
+          );
         })}
       </div>
     </section>
