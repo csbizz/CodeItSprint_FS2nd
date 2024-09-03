@@ -1,25 +1,32 @@
 @import "import.css";
 
+h3 {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 3.2rem;
+  color: var(--gray-900);
+}
+
 main {
-  padding: 0 36rem;
+  padding: 0 clamp(16.66%, 36rem, 18.75%);
 }
 
 #bestProducts {
-  margin-top: 2.4rem;
-  margin-bottom: 4rem;
-}
-
-#productOnSaleTitle {
-  margin-bottom: 2.4rem;
+  margin: 2.4rem auto 4rem auto;
 }
 
 /* ----------------------------------------------------------------------------------------------------------------- */
 
 /* Tablet */
 @media (max-width: 1199px) {
-  header {
+  header,
+  main {
     padding-left: 2.4rem;
     padding-right: 2.4rem;
+  }
+
+  #bestProducts {
+    max-width: 78rem;
   }
 }
 
@@ -27,7 +34,8 @@ main {
 
 /* Mobile */
 @media (max-width: 743px) {
-  header {
+  header,
+  main {
     padding-left: 1.6rem;
     padding-right: 1.6rem;
   }
@@ -37,5 +45,9 @@ main {
     gap: 0.8rem;
     font-size: 1.6rem;
     line-height: 1.909rem;
+  }
+
+  #bestProducts {
+    max-width: 36rem;
   }
 }

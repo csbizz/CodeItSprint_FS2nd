@@ -2,14 +2,16 @@ import '../css/Pagination.css';
 import { useCallback, useEffect, useState } from 'react';
 import { ITEM_PAGE_SIZE } from './App';
 import PageButton from './PageButton';
+import { useViewport } from '../contexts/ViewportContext';
 
 const BUNDLE_SIZE = 5;
 
 function Pagination({ totalCount, onPageChange }) {
+  const viewport = useViewport();
   const [now, setNow] = useState(1);
   const [pBundle, setPBundle] = useState(1);
   const [bundle, setBundle] = useState([]);
-  const totalPages = Math.ceil(totalCount / ITEM_PAGE_SIZE[0]);
+  const totalPages = Math.ceil(totalCount / ITEM_PAGE_SIZE[viewport]);
   const totalBundle = Math.ceil(totalPages / BUNDLE_SIZE);
 
   const handlePageChange = useCallback(
@@ -45,7 +47,7 @@ function Pagination({ totalCount, onPageChange }) {
           &lt;
         </button>
         {bundle.map((p) => (
-          <PageButton value={p} now={now} onClick={handlePageChange} />
+          <PageButton value={p} key={p} now={now} onClick={handlePageChange} />
         ))}
         <button
           id="pageAfter"

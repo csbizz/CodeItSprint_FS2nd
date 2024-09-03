@@ -1,4 +1,8 @@
 import '../css/Footer.css';
+import facebookIcon from '../Image/ic_facebook.png';
+import twitterIcon from '../Image/ic_twitter.png';
+import youtubeIcon from '../Image/ic_youtube.png';
+import instagramIcon from '../Image/ic_instagram.png';
 
 function Footer() {
   return (
@@ -12,16 +16,16 @@ function Footer() {
       </div>
       <div className="sns-link">
         <a href="https://www.facebook.com/">
-          <img src="src/Image/ic_facebook.png" alt="facebook" />
+          <img src={facebookIcon} alt="facebook" />
         </a>
         <a href="https://twitter.com/home">
-          <img src="src/Image/ic_twitter.png" alt="twitter" />
+          <img src={twitterIcon} alt="twitter" />
         </a>
         <a href="https://www.youtube.com/">
-          <img src="src/Image/ic_youtube.png" alt="youtube" />
+          <img src={youtubeIcon} alt="youtube" />
         </a>
         <a href="https://www.instagram.com/">
-          <img src="src/Image/ic_instagram.png" alt="instagram" />
+          <img src={instagramIcon} alt="instagram" />
         </a>
       </div>
     </footer>

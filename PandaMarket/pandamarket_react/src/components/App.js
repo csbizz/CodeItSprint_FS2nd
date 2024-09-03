@@ -7,11 +7,22 @@ import Footer from './Footer';
 import { getProducts } from '../api';
 import useAsync from '../hooks/useAsync';
 import { SORT_ORDER } from './SortOrderSelect';
+import Modal from './Modal';
+import { useViewport } from '../contexts/ViewportContext';
 
-const BEST_ITEM_PAGE_SIZE = [4, 2, 1];
-export const ITEM_PAGE_SIZE = [10, 6, 4];
+const BEST_ITEM_PAGE_SIZE = Object.freeze({
+  PC: 4,
+  TABLET: 2,
+  MOBILE: 1
+});
+export const ITEM_PAGE_SIZE = Object.freeze({
+  PC: 10,
+  TABLET: 6,
+  MOBILE: 4
+});
 
 function App() {
+  const viewport = useViewport();
   const [bestItems, setBestItems] = useState([]);
   const [items, setItems] = useState([]);
   const [sortOrder, setSortOrder] = useState(SORT_ORDER.RECENT);
@@ -47,16 +58,23 @@ function App() {
   useEffect(() => {
     handleLoadBestItem({
       page: 1,
-      pageSize: BEST_ITEM_PAGE_SIZE[0],
+      pageSize: BEST_ITEM_PAGE_SIZE[viewport],
       orderBy: SORT_ORDER.FAVORITE
     });
     handleLoadItem({
       page: now,
-      pageSize: ITEM_PAGE_SIZE[0],
+      pageSize: ITEM_PAGE_SIZE[viewport],
       orderBy: sortOrder,
       keyword: searchQuery
     });
-  }, [now, sortOrder, searchQuery, handleLoadBestItem, handleLoadItem]);
+  }, [
+    viewport,
+    now,
+    sortOrder,
+    searchQuery,
+    handleLoadBestItem,
+    handleLoadItem
+  ]);
 
   return (
     <>
@@ -72,6 +90,8 @@ function App() {
         />
       </main>
       <Footer />
+      {/* {isLoading && <Modal message="로딩 중입니다." btn={false} />} */}
+      {err && <Modal message={err.message} />}
     </>
   );
 }
