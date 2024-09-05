@@ -1,6 +1,6 @@
 import '../css/Pagination.css';
 import { useCallback, useEffect, useState } from 'react';
-import { ITEM_PAGE_SIZE } from './App';
+import { ITEM_PAGE_SIZE } from './Main';
 import PageButton from './PageButton';
 import { useViewport } from '../contexts/ViewportContext';
 
