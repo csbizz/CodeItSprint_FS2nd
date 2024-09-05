@@ -1,11 +1,11 @@
 import '../css/market.css';
 import { useCallback, useEffect, useState } from 'react';
-import BestProducts from './BestProducts';
-import ProductsOnSale from './ProductsOnSale';
+import BestProducts from '../components/BestProducts';
+import ProductsOnSale from '../components/ProductsOnSale';
 import { getProducts } from '../api';
 import useAsync from '../hooks/useAsync';
-import { SORT_ORDER } from './SortOrderSelect';
-import Modal from './Modal';
+import { SORT_ORDER } from '../components/SortOrderSelect';
+import Modal from '../components/Modal';
 import { useViewport } from '../contexts/ViewportContext';
 
 const BEST_ITEM_PAGE_SIZE = Object.freeze({
@@ -19,7 +19,7 @@ export const ITEM_PAGE_SIZE = Object.freeze({
   MOBILE: 4
 });
 
-function Main() {
+function ItemsPage() {
   const viewport = useViewport();
   const [bestItems, setBestItems] = useState([]);
   const [items, setItems] = useState([]);
@@ -91,4 +91,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default ItemsPage;

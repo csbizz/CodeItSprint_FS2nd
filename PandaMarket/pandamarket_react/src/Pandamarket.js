@@ -1,13 +1,16 @@
-import App from './components/App';
+import './css/import.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Main from './components/Main';
+import App from './components/App';
+import ItemsPage from './pages/ItemsPage';
+import LandingPage from './pages/LandingPage';
 
 function Pandamarket() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route index element={<Main />} />
+          <Route index element={<LandingPage />} />
+          <Route path="items" element={<ItemsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
