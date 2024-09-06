@@ -1,6 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import style from '../css/Header.module.css';
 import logoImg from '../Image/logo.png';
+
+function getLinkStyle({ isActive }) {
+  return {
+    color: isActive ? '#3692ff' : undefined
+  };
+}
 
 function Header() {
   return (
@@ -9,8 +15,12 @@ function Header() {
         <img id={`${style.pandaLogo}`} src={logoImg} alt="판다마켓 로고" />
       </Link>
       <nav id={`${style.topNav}`}>
-        <Link to="/">자유게시판</Link>
-        <Link to="/items">중고마켓</Link>
+        <NavLink to="/free" style={getLinkStyle}>
+          자유게시판
+        </NavLink>
+        <NavLink to="/items" style={getLinkStyle}>
+          중고마켓
+        </NavLink>
       </nav>
       <Link to="/login/" id={`${style.loginButton}`} className="button">
         로그인

@@ -1,4 +1,4 @@
-import style from '../css/LandingPage.module.css';
+import style from './css/LandingPage.module.css';
 import hotItem from '../Image/Img_home_01.png';
 import search from '../Image/Img_home_02.png';
 import register from '../Image/Img_home_03.png';

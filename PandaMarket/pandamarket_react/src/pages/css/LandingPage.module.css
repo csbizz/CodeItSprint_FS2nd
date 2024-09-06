@@ -5,11 +5,11 @@ h1 {
 }
 
 #topBanner {
-  background-image: url("../Image/Img_home_top.png");
+  background-image: url("/src/Image/Img_home_top.png");
 }
 
 #bottomBanner {
-  background-image: url("../Image/Img_home_bottom.png");
+  background-image: url("/src/Image/Img_home_bottom.png");
 }
 
 .banner {
