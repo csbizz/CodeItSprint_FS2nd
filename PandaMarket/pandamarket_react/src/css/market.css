@@ -6,7 +6,7 @@ h3 {
 }
 
 main {
-  padding: 0 clamp(16.66%, 36rem, 18.75%);
+  padding: 0 36rem;
 }
 
 #bestProducts {
@@ -17,6 +17,9 @@ main {
 
 /* Tablet */
 @media (max-width: 1199px) {
+  main {
+    padding: 0 2.4rem;
+  }
 }
 
 /* ----------------------------------------------------------------------------------------------------------------- */
@@ -25,5 +28,9 @@ main {
 @media (max-width: 743px) {
   #bestProducts {
     max-width: 36rem;
+  }
+
+  main {
+    padding: 0 1.6rem;
   }
 }
