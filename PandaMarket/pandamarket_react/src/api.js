@@ -1,4 +1,4 @@
-import * as ownFetch from './own_fetch.js';
+import * as ownFetch from './fetchUtils.js';
 
 const SERVER = 'https://panda-market-api.vercel.app/products';
 

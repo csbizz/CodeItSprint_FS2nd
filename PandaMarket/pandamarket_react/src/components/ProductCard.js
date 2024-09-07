@@ -1,5 +1,5 @@
 import '../css/ProductCard.css';
-import { priceFunc } from '../own_func';
+import { priceFunc } from '../utils';
 
 function ProductCard({ item, classNames }) {
   const { favoriteCount, price, name, images } = item;
