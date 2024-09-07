@@ -14,7 +14,7 @@ function ItemsPage() {
       <BestProducts />
       <ProductsOnSale />
 
-      {/* {isLoading && <Modal message="로딩 중입니다." btn={false} />} */}
+      {/* {isLoading && <Modal message="로딩 중입니다." noButton />} */}
       {err && <Modal message={err.message} />}
     </>
   );

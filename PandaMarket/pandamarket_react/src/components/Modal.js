@@ -1,11 +1,11 @@
 import '../css/modal.css';
 
-function Modal({ message, btn = true }) {
+function Modal({ message, noButton = false }) {
   return (
     <div className="modal">
       <div className="modal-content">
         <p>{message}</p>
-        {btn && <div className="button">확인</div>}
+        {!noButton && <div className="button">확인</div>}
       </div>
     </div>
   );
