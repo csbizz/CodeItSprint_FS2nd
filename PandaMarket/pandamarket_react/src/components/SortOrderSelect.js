@@ -1,4 +1,4 @@
-import '../css/SortOrderSelect.css';
+import style from './css/SortOrderSelect.module.css';
 import { useState } from 'react';
 import { useViewport, VIEWPORT } from '../contexts/ViewportContext';
 import sortIcon from '../Image/ic_sort.svg';
@@ -27,8 +27,8 @@ function SortOrderSelect({ initialSortOrder = SORT_ORDER.RECENT, onChange }) {
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   return (
-    <div className="sort-order-wrapper">
-      <div className="sort-order" onClick={toggleDropdown}>
+    <div className={`${style['sort-order-wrapper']}`}>
+      <div className={`${style['sort-order']}`} onClick={toggleDropdown}>
         {viewport !== VIEWPORT.MOBILE && SORT_ORDER_MSG[sortOrder]}
         <img
           src={viewport !== VIEWPORT.MOBILE ? arrowDown : sortIcon}
@@ -36,7 +36,7 @@ function SortOrderSelect({ initialSortOrder = SORT_ORDER.RECENT, onChange }) {
         />
       </div>
       {dropdownOpen && (
-        <ul className="sort-order-list">
+        <ul className={`${style['sort-order-list']}`}>
           {Object.values(SORT_ORDER).map((o) => {
             return (
               <li onClick={() => handleOrderChange(o)} key={o}>

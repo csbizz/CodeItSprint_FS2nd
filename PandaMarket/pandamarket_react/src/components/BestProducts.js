@@ -1,4 +1,4 @@
-import '../css/BestProducts.css';
+import style from './css/BestProducts.module.css';
 import { useCallback, useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
 import useAsync from '../hooks/useAsync';
@@ -36,14 +36,18 @@ function BestProducts() {
   }, [viewport, handleLoadItem]);
 
   return (
-    <section id="bestProducts">
-      <div id="bestProductsTitle">
+    <section id={`${style.bestProducts}`}>
+      <div id={`${style.bestProductsTitle}`}>
         <h3>베스트 상품</h3>
       </div>
-      <div id="bestProductsItems">
+      <div id={`${style.bestProductsItems}`}>
         {items.map((item) => {
           return (
-            <ProductCard classNames="bestItem" item={item} key={item.id} />
+            <ProductCard
+              classNames={`${style.bestitem} ${style['bestitem-product-img']}`}
+              item={item}
+              key={item.id}
+            />
           );
         })}
       </div>

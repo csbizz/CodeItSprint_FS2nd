@@ -16,7 +16,7 @@
   grid-template-rows: repeat(2, 1fr);
 }
 
-#productOnSalePagination {
+#paginationWrapper {
   margin: 4.3rem auto 14rem;
 }
 
@@ -31,7 +31,7 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  #productOnSalePagination {
+  #paginationWrapper {
     margin-bottom: 16.5rem;
   }
 }
@@ -49,12 +49,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .card.productOnSale .product-img {
-    width: 16.8rem;
-    border-radius: 12px;
-  }
-
-  #productOnSalePagination {
+  #paginationWrapper {
     margin-bottom: 13.5rem;
   }
 }

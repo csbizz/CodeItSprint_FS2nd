@@ -1,4 +1,4 @@
-import '../css/ProductsOnSale.css';
+import style from './css/ProductsOnSale.module.css';
 import ProductCard from './ProductCard';
 import Pagination from './Pagination';
 import ProductOnSaleTitle from './ProductOnSaleTitle';
@@ -48,19 +48,25 @@ function ProductsOnSale() {
   }, [viewport, now, sortOrder, searchQuery, handleLoadItem]);
 
   return (
-    <section id="productOnSale">
+    <section id={`${style.productOnSale}`}>
       <ProductOnSaleTitle
         onSearch={handleSearch}
         onSortOrderChange={handleSortOrderChange}
       />
-      <div id="productOnSaleItems">
+      <div id={`${style.productOnSaleItems}`}>
         {items.map((item) => {
           return (
-            <ProductCard classNames="productOnSale" item={item} key={item.id} />
+            <ProductCard
+              classNames={`${style.productOnSale}`}
+              item={item}
+              key={item.id}
+            />
           );
         })}
       </div>
-      <Pagination totalCount={totalCount} onPageChange={handlePageChange} />
+      <div id={`${style.paginationWrapper}`}>
+        <Pagination totalCount={totalCount} onPageChange={handlePageChange} />
+      </div>
     </section>
   );
 }

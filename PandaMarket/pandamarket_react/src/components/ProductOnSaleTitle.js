@@ -1,4 +1,4 @@
-import '../css/ProductOnSaleTitle.css';
+import style from './css/ProductOnSaleTitle.module.css';
 import { useState } from 'react';
 import SortOrderSelect from './SortOrderSelect';
 import { useViewport, VIEWPORT } from '../contexts/ViewportContext';
@@ -15,16 +15,18 @@ function ProductOnSaleTitle({ onSearch, onSortOrderChange }) {
     if (e.key === 'Enter') onSearch(searchQuery);
   };
 
-  const registBtn = <button className="regist-button">상품 등록하기</button>;
+  const registBtn = (
+    <button className={`${style['regist-button']}`}>상품 등록하기</button>
+  );
   const searchQry = (
-    <div className="search-query">
+    <div className={`${style['search-query']}`}>
       <label htmlFor="search">
         <img src={searchIcon} alt="searchIcon" />
       </label>
       <input
         id="search"
         type="text"
-        className="search-query-input"
+        className={`${style['search-query-input']}`}
         placeholder="검색할 상품을 입력해주세요"
         value={searchQuery}
         onChange={handleSearchChange}
@@ -35,14 +37,14 @@ function ProductOnSaleTitle({ onSearch, onSortOrderChange }) {
   const sortOrderSlct = <SortOrderSelect onChange={onSortOrderChange} />;
 
   return viewport === VIEWPORT.MOBILE ? (
-    <div id="productOnSaleTitle">
+    <div id={`${style.productOnSaleTitle}`}>
       <h3>판매 중인 상품</h3>
       {registBtn}
       {searchQry}
       {sortOrderSlct}
     </div>
   ) : (
-    <div id="productOnSaleTitle">
+    <div id={`${style.productOnSaleTitle}`}>
       <h3>판매 중인 상품</h3>
       {searchQry}
       {registBtn}

@@ -7,9 +7,7 @@ function App() {
   return (
     <GlobalContextProvider>
       <Header />
-      <main>
-        <Outlet />
-      </main>
+      <Outlet />
       <Footer />
     </GlobalContextProvider>
   );

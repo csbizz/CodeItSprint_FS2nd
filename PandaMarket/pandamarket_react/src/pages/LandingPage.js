@@ -5,7 +5,7 @@ import register from '../Image/Img_home_03.png';
 
 function LandingPage() {
   return (
-    <>
+    <main id={`${style['landingPage']}`}>
       <section id={`${style['topBanner']}`} className={`${style['banner']}`}>
         <div className={`${style['section-wrap']}`}>
           <h1 id={`${style['topBannerTitle']}`}>
@@ -77,7 +77,7 @@ function LandingPage() {
           </h1>
         </div>
       </section>
-    </>
+    </main>
   );
 }
 

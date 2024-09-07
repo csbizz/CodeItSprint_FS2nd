@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import style from '../css/Header.module.css';
+import style from './css/Header.module.css';
 import logoImg from '../Image/logo.png';
 
 function getLinkStyle({ isActive }) {

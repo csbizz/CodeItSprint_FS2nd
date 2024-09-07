@@ -1,4 +1,4 @@
-import style from '../css/Footer.module.css';
+import style from './css/Footer.module.css';
 import facebookIcon from '../Image/ic_facebook.png';
 import twitterIcon from '../Image/ic_twitter.png';
 import youtubeIcon from '../Image/ic_youtube.png';

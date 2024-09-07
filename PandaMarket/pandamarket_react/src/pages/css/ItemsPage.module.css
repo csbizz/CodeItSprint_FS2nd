@@ -1,15 +1,8 @@
-h3 {
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 3.2rem;
-  color: var(--gray-900);
-}
-
-main {
+#itemsPage {
   padding: 0 36rem;
 }
 
-#bestProducts {
+#bestProductWrapper {
   margin: 2.4rem auto 4rem auto;
 }
 
@@ -17,7 +10,7 @@ main {
 
 /* Tablet */
 @media (max-width: 1199px) {
-  main {
+  #itemsPage {
     padding: 0 2.4rem;
   }
 }
@@ -26,11 +19,11 @@ main {
 
 /* Mobile */
 @media (max-width: 743px) {
-  #bestProducts {
+  #bestProductWrapper {
     max-width: 36rem;
   }
 
-  main {
+  #itemsPage {
     padding: 0 1.6rem;
   }
 }

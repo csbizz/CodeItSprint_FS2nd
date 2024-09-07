@@ -1,4 +1,4 @@
-import '../css/Pagination.css';
+import style from './css/Pagination.module.css';
 import { useCallback, useEffect, useState } from 'react';
 import { useViewport } from '../contexts/ViewportContext';
 import { ITEM_PAGE_SIZE } from './ProductsOnSale';
@@ -38,10 +38,10 @@ function Pagination({ totalCount, onPageChange }) {
   }, [pBundle, totalPages, handlePageChange]);
 
   return (
-    <div id="productOnSalePagination">
-      <div className="pagination productOnSale">
+    <div id={`${style.productOnSalePagination}`}>
+      <div className={`${style.pagination} ${style.productOnSale}`}>
         <button
-          id="pageBefore"
+          id={`${style.pageBefore}`}
           onClick={handlePrevBundle}
           disabled={pBundle <= 1}
         >
@@ -51,13 +51,13 @@ function Pagination({ totalCount, onPageChange }) {
           <button
             key={p}
             onClick={() => handlePageChange(p)}
-            className={p === now ? 'now' : ''}
+            className={p === now ? `${style.now}` : ''}
           >
             {p}
           </button>
         ))}
         <button
-          id="pageAfter"
+          id={`${style.pageAfter}`}
           onClick={handleNextBundle}
           disabled={pBundle >= totalBundle}
         >
