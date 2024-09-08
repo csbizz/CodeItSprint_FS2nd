@@ -1,0 +1,32 @@
+get http://localhost:3001/tasks
+
+###
+
+get http://localhost:3001/tasks?sort=oldest&count=3
+
+###
+
+get http://localhost:3001/tasks/66dce35b411b85087664d
+
+###
+
+post http://localhost:3001/tasks
+Content-Type: application/json
+
+{
+    "title": "산책",
+    "description": "강아지랑 30분 산책하기"
+}
+
+###
+
+patch http://localhost:3001/tasks/1
+Content-Type: application/json
+
+{
+    "isComplete": true
+}
+
+###
+
+delete http://localhost:3001/tasks/1
