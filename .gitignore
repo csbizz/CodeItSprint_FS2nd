@@ -1,7 +1,5 @@
 #.gitignore
 
-/2-Sprint-Mission-FE
-/2-Sprint-Mission-FE/*
 /model_answer
 /model_answer/*
 /backup
