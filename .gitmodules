@@ -4,3 +4,9 @@
 [submodule "PandaMarket"]
 	path = PandaMarket
 	url = https://github.com/csbizz/PandaMarket
+[submodule "2-Sprint-Mission-BE"]
+	path = 2-Sprint-Mission-BE
+	url = https://github.com/csbizz/2-Sprint-Mission-BE
+[submodule "2-Sprint-Mission-FE"]
+	path = 2-Sprint-Mission-FE
+	url = https://github.com/csbizz/2-Sprint-Mission-FE
