@@ -1,3 +1,6 @@
 [submodule "PandaMarket_BE"]
 	path = PandaMarket_BE
 	url = https://github.com/csbizz/PandaMarket_BE
+[submodule "PandaMarket"]
+	path = PandaMarket
+	url = https://github.com/csbizz/PandaMarket
