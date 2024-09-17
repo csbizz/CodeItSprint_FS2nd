@@ -1,22 +1,28 @@
-import { CastError, ValidationError } from './error.js';
+import { Prisma } from '@prisma/client';
+import { StructError } from 'superstruct';
+import { CastError, TypeError, ValidationError } from './error.js';
 
-const MESSAGES = Object.freeze({
-  NOID: 'Cannot find given id.',
-  IDFORMAT: 'Invalid id format.',
-});
-
-// handler를 인자로 받아서 오류처리 해주는 함수
 export function asyncHandler(handler) {
-  return async (req, res) => {
+  return async function (req, res) {
     try {
       await handler(req, res);
     } catch (e) {
-      if (e instanceof ValidationError) {
-        res.status(400).json({ message: e.message });
-      } else if (e instanceof CastError) {
-        res.status(404).json({ message: MESSAGES.IDFORMAT });
+      console.error(e);
+      if (
+        e instanceof Prisma.PrismaClientValidationError ||
+        e instanceof TypeError ||
+        e instanceof ValidationError
+      ) {
+        res.status(400).send({ message: e.message });
+      } else if (
+        e instanceof StructError ||
+        (e instanceof Prisma.PrismaClientKnownRequestError &&
+          e.code === 'P2025') ||
+        e instanceof CastError
+      ) {
+        res.sendStatus(404);
       } else {
-        res.status(500).json({ message: e.message });
+        res.status(500).send({ message: e.message });
       }
     }
   };
