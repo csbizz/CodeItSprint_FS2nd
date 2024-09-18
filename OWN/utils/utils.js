@@ -16,4 +16,20 @@ function isEmpty(input) {
   else return false;
 }
 
-export { priceFunc, isEmpty };
+function getRandomNumber(min, max) {
+  const diff = max - min;
+  const rand = Math.random(); // 0 ~ 1 사이의 랜덤 float
+
+  return rand * diff + min;
+}
+
+function getRandomInteger(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  const diff = maxFloored - minCeiled;
+  const rand = Math.random();
+
+  return Math.floor(rand * (diff + 1) + minCeiled);
+}
+
+export { priceFunc, isEmpty, getRandomNumber, getRandomInteger };
